@@ -7,4 +7,4 @@ pyautogui.FAILSAFE = False
 while True:
     taskMgr = pyautogui.getWindowsWithTitle("Task Manager")
     subprocess.Popen("/cancellor.bat")
-    time.sleep(1)
+    time.sleep(0.5)
