@@ -6,5 +6,9 @@ pyautogui.FAILSAFE = False
 
 while True:
     taskMgr = pyautogui.getWindowsWithTitle("Task Manager")
-    subprocess.Popen("/cancellor.bat")
     time.sleep(0.5)
+    if taskMgr == []:
+        pass
+    else:
+        print("open")
+        subprocess.Popen("cancellor.bat")
