@@ -10,7 +10,4 @@ while True:
     if taskMgr == []:
         pass
     else:
-        print("open")
         shut = subprocess.Popen("cancellor.bat")
-        break
-shut.wait()
