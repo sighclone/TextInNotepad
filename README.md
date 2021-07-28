@@ -1,5 +1,5 @@
 # TextInNotepad (TIN)
-Simple FUD windows malware written in python 3.9. TIN is a small malware that I wrote which will lock your keyboard and mouse and type text into notepad. TIN is made for Windows 10.
+Simple FUD windows malware written in python 3.9. TIN is a small malware that I wrote which will lock your keyboard and mouse and type text into notepad. TIN is made for Windows 10. TIN is essentially not a complete and foolproof malware. You can use TIN to create ransomware or other stronger malwares but TIN is intentionally not moulded into a definite malware.
 
 ### Go to the `Releases` section to get the final malware
 ### Use the `Wiki` section for information and usage instructions about TIN
