@@ -10,7 +10,7 @@ Simple FUD windows malware written in python 3.9. TIN is a small malware that I 
 
 ### Before you proceed 🛑
 Code available here is safe, remove line 107 for final use.<br>
-Known issues - User can still click with mouse which _may_ cause intereference with the script, user can also press `ctrl`+`alt`+`del` which also _can_ interfere with the script, however, the system will shutdown if the user attempts to use task manager to kill the program. Testing was done only on Admin account, program _may_ perform differently on a regular user account.
+**Known issues** - User can still click with mouse which _may_ cause intereference with the script, user can also press `ctrl`+`alt`+`del` which also _can_ interfere with the script, however, the system will shutdown if the user attempts to use task manager to kill the program. Testing was done only on Admin account, program _may_ perform differently on a regular user account.<br><br>If you have solutions to these issues and are interested in contribution, do raise a PR.
 
 Donate:<br>
 **Bitcoin:** bc1qmcuu68cpp2d68f09s0cenj7k5m8y3cc3vwxk2e<br>
