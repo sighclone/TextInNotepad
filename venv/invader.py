@@ -83,7 +83,7 @@ time.sleep(0.25)
 pyautogui.keyDown('alt')
 pyautogui.press('tab')
 pyautogui.keyUp('alt')
-time.sleep(0.05)
+time.sleep(0.2)
 pyautogui.write('exit')
 pyautogui.press('enter')
 time.sleep(0.2)
@@ -106,6 +106,8 @@ pyautogui.write(
 time.sleep(5)
 unblockinput()
 x = 0
+
+'''
 while True:
     try:
         currentWindow = pyautogui.getActiveWindow()
@@ -125,3 +127,4 @@ while True:
         pyautogui.keyDown('alt')
         pyautogui.press('tab')
         pyautogui.keyUp('alt')
+'''
